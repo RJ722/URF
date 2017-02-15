@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+	Log In 
+{% endblock %}
+
+{% block body %}
+	{% if form.errors %}
+		<div style = "color: red">
+			{{ form.errors }}
+		</div>
+	{% endif %}
+	<form method = "POST">
+	{% csrf_token %}
+		<table border = "1">
+			<tr>
+				<th>
+					<label for="id_username">Username: </label>
+					{{ form.username }}
+				</th>
+			</tr>
+			<tr>
+				<th>
+					<label for = "id_password">Password: </label>
+					{{ form.password }}
+				</th>
+			</tr>
+		</table>
+		<input type="submit" value="Login">
+	</form>
+	<a href = "/register">Register</a>
+{% endblock %}
